@@ -8,8 +8,10 @@ public class Main {
         // Création et ajout de documents
         Livre livre1 = new Livre("Le Petit Prince", "Antoine de Saint-Exupéry");
         CDAudio cd1 = new CDAudio("Kind of Blue", "Miles Davis", "Miles Davis");
+        Film film1 = new Film("Pulp Fiction", "Quentin Tarantino", 154);
         mediatheque.addDocument(livre1);
         mediatheque.addDocument(cd1);
+        mediatheque.addDocument(film1);
 
         // Création et ajout d'adhérents
         Adherent adherent1 = new Adherent(1, "Jean", "Dupont", "jean.dupont@example.com");
@@ -22,6 +24,11 @@ public class Main {
                 mediatheque.emprunterDocument(adherent1, livre1));
         System.out.println("Tentative d'emprunt 2 (devrait échouer, document déjà emprunté) : " +
                 mediatheque.emprunterDocument(adherent2, livre1));
+        System.out.println("Tentative d'emprunt 3 (devrait réussir) : " +
+                mediatheque.emprunterDocument(adherent2, cd1));
+        System.out.println("Tentative d'emprunt 4 (devrait échouer, limite d'emprunts atteinte) : " +
+                mediatheque.emprunterDocument(adherent2, film1));
+
 
         // Afficher tous les documents empruntés par un adhérent
         System.out.println("Documents empruntés par Jean Dupont :");
